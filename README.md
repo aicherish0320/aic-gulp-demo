@@ -16,3 +16,5 @@
 - `gulp-swig`
 
 ## 图片和字体文件的转换
+
+- `imagemin`
