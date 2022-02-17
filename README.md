@@ -10,3 +10,7 @@
 - `gulp-babel`
 - `@babel/core`
 - `@babel/preset-env`
+
+## 页面编译任务
+
+- `gulp-swig`

@@ -1,6 +1,14 @@
-const { src, dest } = require('gulp')
+const { src, dest, parallel } = require('gulp')
 const babel = require('gulp-babel')
 const sass = require('gulp-sass')(require('sass'))
+const swig = require('gulp-swig')
+
+const data = {
+  foo: {
+    bar: 'bar',
+    baz: 'baz'
+  }
+}
 
 const style = () => {
   return src('src/assets/styles/*.scss', { base: 'src' })
@@ -14,7 +22,14 @@ const script = () => {
     .pipe(dest('dist'))
 }
 
+const page = () => {
+  return src('src/*.html', { base: 'src' })
+    .pipe(swig({ data }))
+    .pipe(dest('dist'))
+}
+
+const compile = parallel(style, script, page)
+
 module.exports = {
-  style,
-  script
+  compile
 }
