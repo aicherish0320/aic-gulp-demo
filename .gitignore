@@ -1,5 +1,6 @@
 .vscode
 dist
 release
+temp
 
 node_modules
